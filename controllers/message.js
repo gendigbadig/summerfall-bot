@@ -155,7 +155,7 @@ async function mainPresent(e, lineClient) {
   await pushMessage(userId, lineClient, 'INILAH HADIAHNYAA');
   await pushMessage(userId, lineClient, '🎊 SELAMAT ULANG TAUN QURROTU AYNIYYYY!! 🎉');
   await pushMessage(userId, lineClient, '🎈 Happy 19th birthday yaa 🎂 🎁 ');
-  await pushMessage(userId, lineClient, 'Semoga selalu sehat, panjang umur, semangat kuliahnya, semangat ngejar cita citanya, sayang sama orang tua keluarga, sayang sama vira mami dan teman temanmu yang lain, dan semoga yang disemogakan selama ini bisa terwujud semua, aamiiinn 😇');
+  await pushMessage(userId, lineClient, 'Semoga selalu sehat, panjang dan berkah umurnya, semangat kuliahnya, semangat ngejar cita citanya, sayang sama orang tua keluarga, sayang sama vira mami dan teman temanmu yang lain, dan semoga yang disemogakan selama ini bisa terwujud semua, aamiiinn 😇');
   await pushMessage(userId, lineClient, 'Oh iyaa dibawah ini ada beberapa kado yang bisa kamu pilih looh, mau pilih satu atau semua juga boleeh, klik aja langsung kadonyaa 🎁 🎁');
   // await pushMessageBulk(userId, lineClient, ['SIAPP SIAPPP', '3 ...', '2 ...', '1 ...', 'INILAH HADIAHNYAA']);
   // await pushMessageBulk(userId, lineClient, ['🎊 SELAMAT ULANG TAUN QURROTU AYNIYYYY!! 🎉', '🎈 Happy 19th birthday yaa 🎂 🎁 ', 'Semoga selalu sehat, panjang dan berkah umurnya, semangat kuliahnya, semangat ngejar cita citanya, sayang sama orang tua keluarga, sayang sama vira mami dan teman temanmu yang lain, dan semoga yang disemogakan selama ini bisa terwujud semua, aamiiinn 😇', 'Oh iyaa dibawah ini ada beberapa kado yang bisa kamu pilih looh, mau pilih satu atau semua juga boleeh, klik aja langsung kadonyaa 🎁 🎁'])
