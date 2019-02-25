@@ -5,6 +5,7 @@ const lineClient = new line.Client(config.line);
 const follow = require('./follow');
 const admin = require('./admin');
 const message = require('./message');
+const unfollow = require('./unfollow');
 
 /**
  * e - webhook event
@@ -44,9 +45,8 @@ async function eventHandler(e) {
       }
 
       return message(e, lineClient);
-
-      // case 'unfollow':
-      //   return unfollow(e);
+    case 'unfollow':
+      return unfollow(e);
     default:
       return Promise.resolve(null)
   }

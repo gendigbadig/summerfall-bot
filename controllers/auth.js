@@ -29,6 +29,12 @@ async function adminCheck(e) {
   return !!status.isAdmin;
 }
 
+async function deleteStatus(e) {
+  const userId = e.source.userId;
+
+  return redis.setAsync(userId, JSON.stringify({}));
+}
+
 module.exports = {
   adminCheck,
   getStatus,
