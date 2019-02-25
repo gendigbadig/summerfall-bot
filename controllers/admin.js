@@ -2,7 +2,7 @@ const {adminCheck, updateStatus} = require('./auth');
 const config = require('config');
 
 async function activateAdmin(e, lineClient) {
-  await updateStatus(e.source, 'admin', true);
+  await updateStatus(e, 'isAdmin', true);
   await lineClient.replyMessage(e.replyToken, {
     type: 'text',
     text: `Anda telah masuk ke mode admin. Anda dapat melakukan command-command admin, seperti: 
@@ -32,7 +32,7 @@ async function activateAdmin(e, lineClient) {
 }
 
 async function deactivateAdmin(e, lineClient) {
-  await updateStatus(e.source, 'admin', false);
+  await updateStatus(e, 'isAdmin', false);
   await lineClient.replyMessage(e.replyToken, {
     type: 'text',
     text: 'Anda telah keluar dari mode admin'

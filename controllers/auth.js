@@ -24,6 +24,16 @@ async function updateStatus(e, key, value) {
   return status;
 }
 
+async function updateStatusBulk(e, data) {
+  const userId = e.source.userId;
+  const status = await getStatus(e);
+
+  const newStatus = Object.assign({}, status, data);
+
+  await redis.setAsync(userId, JSON.stringify(newStatus));
+  return newStatus;
+}
+
 async function adminCheck(e) {
   const status = await getStatus(e);
   return !!status.isAdmin;
@@ -32,11 +42,14 @@ async function adminCheck(e) {
 async function deleteStatus(e) {
   const userId = e.source.userId;
 
-  return redis.setAsync(userId, JSON.stringify({}));
+  await redis.setAsync(userId, JSON.stringify({}));
+  return {}
 }
 
 module.exports = {
   adminCheck,
   getStatus,
-  updateStatus
+  updateStatus,
+  updateStatusBulk,
+  deleteStatus
 }

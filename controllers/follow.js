@@ -1,6 +1,12 @@
+const auth = require('./auth');
+
 async function follow(e, lineClient) {
   const {userId} = e.source;
   const {replyToken} = e;
+
+  const profile = await lineClient.getProfile(userId);
+
+  await auth.updateStatusBulk(e, profile);
 
   const {richmenus} = await lineClient.getRichMenuList();
 
