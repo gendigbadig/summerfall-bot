@@ -31,10 +31,8 @@ const unfollow = require('./unfollow');
  * -
  */
 async function eventHandler(e) {
-
   const adminList = await auth.getAdmin();
   const userId = e.source.userId;
-  const profile = await lineClient.getProfile(userId);
 
   switch (e.type) {
     case 'follow':
@@ -44,6 +42,8 @@ async function eventHandler(e) {
       if (e.replyToken === "00000000000000000000000000000000" || e.replyToken === "ffffffffffffffffffffffffffffffff") {
         return Promise.resolve(null);
       }
+
+      const profile = await lineClient.getProfile(userId);
 
       // Admin mode
       if (/^(admin)/i.test(e.message.text)) {
