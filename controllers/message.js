@@ -130,6 +130,7 @@ async function hadiahA(e, lineClient) {
   await pushMessage(userId, lineClient, 'Dari: Vira');
   await pushSound(userId, lineClient, `${BASE_URL}assets/audio/vira-vn-ultah-ayniy-pt1.m4a`, 56000);
   await pushSound(userId, lineClient, `${BASE_URL}assets/audio/vira-vn-ultah-ayniy-pt2.m4a`, 56000);
+  await pushCarousel(userId, lineClient, generateCarousel());
 }
 
 async function hadiahY(e, lineClient) {
@@ -139,6 +140,7 @@ async function hadiahY(e, lineClient) {
   await pushMessage(userId, lineClient, 'Dari: Amel');
   await pushSound(userId, lineClient, `${BASE_URL}assets/audio/hadiah-y.m4a`, 13000);
   await pushMessage(userId, lineClient, 'Happy birthday my best, happy for u my friend, make a wish and we will give u a kiss 😘');
+  await pushCarousel(userId, lineClient, generateCarousel());
 }
 
 async function hadiahN(e, lineClient) {
@@ -148,6 +150,7 @@ async function hadiahN(e, lineClient) {
   await pushMessage(userId, lineClient, 'Dari: Mami');
   await pushImage(userId, lineClient, `${BASE_URL}assets/image/mami-kado-ultah-ayniy.jpg`, `${BASE_URL}assets/image/mami-kado-ultah-ayniy-preview.jpg`);
   await pushMessage(userId, lineClient, 'Barakallah fii umrik Ny semoga diusia yang ke 19 tahun menjadi pribadi yang lebih baik (gak purikan😂😂😂) dan semua yang dicita-citakan terkabul aamiin');
+  await pushCarousel(userId, lineClient, generateCarousel());
 }
 
 async function mainPresent(e, lineClient) {
