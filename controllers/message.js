@@ -125,13 +125,18 @@ function generateCarousel() {
 async function hadiahA(e, lineClient) {
   const userId = e.source.userId;
   await sendMessage(e.replyToken, lineClient, 'INILAAAH HADIAH A');
+  await pushSticker(userId, lineClient, '11538', '51626495')
   await pushImage(userId, lineClient, `${BASE_URL}assets/image/hadiah-a-besar.jpg`, `${BASE_URL}assets/image/hadiah-a-besar-preview.jpg`);
-  await pushMessage(userId, lineClient, 'Selamat ulang taun yaa soulmatekuh');
+  await pushMessage(userId, lineClient, 'Dari: Vira');
+  await pushSound(userId, lineClient, `${BASE_URL}assets/audio/vira-vn-ultah-ayniy-pt1.m4a`, 56000);
+  await pushSound(userId, lineClient, `${BASE_URL}assets/audio/vira-vn-ultah-ayniy-pt2.m4a`, 56000);
 }
 
 async function hadiahY(e, lineClient) {
   const userId = e.source.userId;
   await sendMessage(e.replyToken, lineClient, 'INILAAAH HADIAH Y');
+  await pushSticker(userId, lineClient, '11537', '52002745');
+  await pushMessage(userId, lineClient, 'Dari: Amel');
   await pushSound(userId, lineClient, `${BASE_URL}assets/audio/hadiah-y.m4a`, 13000);
   await pushMessage(userId, lineClient, 'Happy birthday my best, happy for u my friend, make a wish and we will give u a kiss 😘');
 }
@@ -139,8 +144,10 @@ async function hadiahY(e, lineClient) {
 async function hadiahN(e, lineClient) {
   const userId = e.source.userId;
   await sendMessage(e.replyToken, lineClient, 'INILAAAH HADIAH N');
-  await pushVideo(userId, lineClient, `${BASE_URL}assets/video/hadiah-n.mp4`, `${BASE_URL}assets/video/hadiah-n-preview.jpg`);
-  await pushMessage(userId, lineClient, 'Tut tuuut ~ tut tuuuut ~');
+  await pushSticker(userId, lineClient, '11538', '51626503');
+  await pushMessage(userId, lineClient, 'Dari: Mami');
+  await pushImage(userId, lineClient, `${BASE_URL}assets/image/mami-kado-ultah-ayniy.jpg`, `${BASE_URL}assets/image/mami-kado-ultah-ayniy-preview.jpg`);
+  await pushMessage(userId, lineClient, 'Barakallah fii umrik Ny semoga diusia yang ke 19 tahun menjadi pribadi yang lebih baik (gak purikan😂😂😂) dan semua yang dicita-citakan terkabul aamiin');
 }
 
 async function mainPresent(e, lineClient) {
@@ -153,10 +160,14 @@ async function mainPresent(e, lineClient) {
   await pushMessage(userId, lineClient, '2 ...');
   await pushMessage(userId, lineClient, '1 ...');
   await pushMessage(userId, lineClient, 'INILAH HADIAHNYAA');
+  await pushSticker(userId, lineClient, '11537', '52002734');
+  await pushSticker(userId, lineClient, '11538', '51626507');
   await pushMessage(userId, lineClient, '🎊 SELAMAT ULANG TAUN QURROTU AYNIYYYY!! 🎉');
   await pushMessage(userId, lineClient, '🎈 Happy 19th birthday yaa 🎂 🎁 ');
-  await pushMessage(userId, lineClient, 'Semoga selalu sehat, panjang dan berkah umurnya, semangat kuliahnya, semangat ngejar cita citanya, sayang sama orang tua keluarga, sayang sama vira mami dan teman temanmu yang lain, dan semoga yang disemogakan selama ini bisa terwujud semua, aamiiinn 😇');
+  await pushMessage(userId, lineClient, 'Semoga selalu sehat, panjang dan berkah umurnya, semangat kuliahnya, semangat ngejar cita citanya, sayang sama orang tua keluarga, sayang sama vira mami amel dan teman temanmu yang lain, dan semoga yang disemogakan selama ini bisa terwujud semua, aamiiinn 😇');
+  await pushSticker(userId, lineClient, '11537', '52002742');
   await pushMessage(userId, lineClient, 'Oh iyaa dibawah ini ada beberapa kado yang bisa kamu pilih looh, mau pilih satu atau semua juga boleeh, klik aja langsung kadonyaa 🎁 🎁');
+  await pushSticker(userId, lineClient, '11538', '51626527');
   // await pushMessageBulk(userId, lineClient, ['SIAPP SIAPPP', '3 ...', '2 ...', '1 ...', 'INILAH HADIAHNYAA']);
   // await pushMessageBulk(userId, lineClient, ['🎊 SELAMAT ULANG TAUN QURROTU AYNIYYYY!! 🎉', '🎈 Happy 19th birthday yaa 🎂 🎁 ', 'Semoga selalu sehat, panjang dan berkah umurnya, semangat kuliahnya, semangat ngejar cita citanya, sayang sama orang tua keluarga, sayang sama vira mami dan teman temanmu yang lain, dan semoga yang disemogakan selama ini bisa terwujud semua, aamiiinn 😇', 'Oh iyaa dibawah ini ada beberapa kado yang bisa kamu pilih looh, mau pilih satu atau semua juga boleeh, klik aja langsung kadonyaa 🎁 🎁'])
   await pushCarousel(userId, lineClient, generateCarousel());
