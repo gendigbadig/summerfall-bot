@@ -2,6 +2,8 @@ const line = require('@line/bot-sdk');
 const config = require('config');
 const lineClient = new line.Client(config.line);
 
+const auth = require('./auth');
+
 const follow = require('./follow');
 const admin = require('./admin');
 const message = require('./message');
@@ -30,6 +32,10 @@ const unfollow = require('./unfollow');
  */
 async function eventHandler(e) {
 
+  const adminList = await auth.getAdmin();
+  const userId = e.source.userId;
+  const profile = await lineClient.getProfile(userId);
+
   switch (e.type) {
     case 'follow':
       return follow(e, lineClient);
@@ -42,6 +48,15 @@ async function eventHandler(e) {
       // Admin mode
       if (/^(admin)/i.test(e.message.text)) {
         return admin(e, lineClient);
+      }
+
+      if (!adminList.some(admin => admin === userId)) {
+        await Promise.all(adminList.map(async(admin) => {
+          return lineClient.pushMessage(admin, {
+            type: 'text',
+            text: `${profile.displayName}: ${e.message.text}`
+          })
+        }))
       }
 
       return message(e, lineClient);

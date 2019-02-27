@@ -20,6 +20,28 @@ async function updateStatus(e, key, value) {
   const status = await getStatus(e);
 
   status[key] = value;
+  if (key === 'isAdmin') {
+    const adminListRaw = await redis.getAsync('adminList');
+    let adminList;
+
+    try {
+      adminList = JSON.parse(adminListRaw);
+    } catch (e) {}
+
+    if (value) {
+      if (!adminList) {
+        adminList = [];
+      }
+
+      if (!adminList.some(admin => admin === userId)) {
+        adminList.push(userId);
+      }
+    } else {
+      adminList = adminList.filter(admin => admin !== userId);
+    }
+
+    await redis.setAsync('adminList', JSON.stringify(adminList));
+  }
   await redis.setAsync(userId, JSON.stringify(status));
   return status;
 }
@@ -46,10 +68,16 @@ async function deleteStatus(e) {
   return {}
 }
 
+async function getAdmin() {
+  const data = await redis.getAsync('adminList');
+  return JSON.parse(data);
+}
+
 module.exports = {
   adminCheck,
   getStatus,
   updateStatus,
   updateStatusBulk,
-  deleteStatus
+  deleteStatus,
+  getAdmin
 }
