@@ -140,7 +140,7 @@ async function hadiahY(e, lineClient) {
   await pushSticker(userId, lineClient, '11537', '52002745');
   await pushMessage(userId, lineClient, 'Dari: Amel');
   await pushSound(userId, lineClient, `${BASE_URL}assets/audio/hadiah-y.m4a`, 13000);
-  await pushMessage(userId, lineClient, 'Happy birthday my best, happy for u my friend, make a wish and we will give u a kiss 😘');
+  await pushMessage(userId, lineClient, 'Happy Birthday Ayniy🎉🎉\nSemoga panjang umur , sehat selalu, lancar kuliahnyaa, tercapai segala cita cita, semoga kamu selalu dilindungi oleh Allah SWT, menjadi wanita yang sholeha, udah besar udah dewasa harus rajin rajin bantu orang tua, gak boleh males kaya waktu jaman SMA wkwkw (like a turtle), tambah pinterrr, cepet punya pacar eh jangan deh semoga cepat ketemu jodohnyaaa, ojo lali nang aku lk rabi awas ae😢 wish u all the best and all the best for u 😘');
   await pushMessage(userId, lineClient, 'Masih kurangg? Nihh coba bukaa kado yang laiinn')
   await pushCarousel(userId, lineClient, generateCarousel());
 }
@@ -159,7 +159,6 @@ async function hadiahN(e, lineClient) {
 async function mainPresent(e, lineClient) {
   const replyToken = e.replyToken;
   const userId = e.source.userId;
-
   await auth.updateStatus(e, 'isHasFirstPresent', true);
   await sendMessage(replyToken, lineClient, 'SIAPP SIAPPP');
   await pushMessage(userId, lineClient, '3 ...');
