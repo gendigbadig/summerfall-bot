@@ -107,9 +107,21 @@ function generateCarousel() {
       ]
     }, {
       thumbnailImageUrl: `${BASE_URL}assets/carousel/hadiah-i.png`,
-      imageBackgroundColor: '#f6e58d',
+      imageBackgroundColor: '#f0932b',
       title: 'Hadiah I',
       text: 'Tap untuk mendapatkan hadiah I',
+      actions: [
+        {
+          type: 'message',
+          text: 'HADIAH I',
+          label: 'Tap'
+        }
+      ]
+    }, {
+      thumbnailImageUrl: `${BASE_URL}assets/carousel/hadiah-yy.png`,
+      imageBackgroundColor: '#f6e58d',
+      title: 'Hadiah I',
+      text: 'Tap untuk mendapatkan hadiah YY',
       actions: [
         {
           type: 'uri',
@@ -141,7 +153,7 @@ async function hadiahY(e, lineClient) {
   await pushMessage(userId, lineClient, 'Dari: Amel');
   await pushSound(userId, lineClient, `${BASE_URL}assets/audio/hadiah-y.m4a`, 13000);
   await pushMessage(userId, lineClient, 'Happy Birthday Ayniy🎉🎉\nSemoga panjang umur , sehat selalu, lancar kuliahnyaa, tercapai segala cita cita, semoga kamu selalu dilindungi oleh Allah SWT, menjadi wanita yang sholeha, udah besar udah dewasa harus rajin rajin bantu orang tua, gak boleh males kaya waktu jaman SMA wkwkw (like a turtle), tambah pinterrr, cepet punya pacar eh jangan deh semoga cepat ketemu jodohnyaaa, ojo lali nang aku lk rabi awas ae😢 wish u all the best and all the best for u 😘');
-  await pushMessage(userId, lineClient, 'Masih kurangg? Nihh coba bukaa kado yang laiinn')
+  await pushMessage(userId, lineClient, 'Masih belum cukup? Nihh coba bukaa kado yang laiinn')
   await pushCarousel(userId, lineClient, generateCarousel());
 }
 
@@ -153,6 +165,16 @@ async function hadiahN(e, lineClient) {
   await pushImage(userId, lineClient, `${BASE_URL}assets/image/mami-kado-ultah-ayniy.jpg`, `${BASE_URL}assets/image/mami-kado-ultah-ayniy-preview.jpg`);
   await pushMessage(userId, lineClient, 'Barakallah fii umrik Ny semoga diusia yang ke 19 tahun menjadi pribadi yang lebih baik (gak purikan😂😂😂) dan semua yang dicita-citakan terkabul aamiin');
   await pushMessage(userId, lineClient, 'Mau lagi? Bolehhh dibuka aja kadonyaa yang lainn')
+  await pushCarousel(userId, lineClient, generateCarousel());
+}
+
+async function hadiahI(e, lineClient) {
+  const userId = e.source.userId;
+  await sendMessage(e.replyToken, lineClient, 'INILAAAH HADIAH I');
+  await pushSticker(userId, lineClient, '11537', '52002748')
+  await pushMessage(userId, lineClient, 'Dari: Puput');
+  await pushSound(userId, lineClient, `${BASE_URL}assets/audio/puput-vn-ultah-ayniy.m4a`, 11000);
+  await pushMessage(userId, lineClient, 'Masih kurang aja nihh kadonyaa? Tenang ajaa, masih banyak pilihan dibawah ini... ')
   await pushCarousel(userId, lineClient, generateCarousel());
 }
 
@@ -202,6 +224,10 @@ module.exports = async function message(e, lineClient) {
 
   if (/^(hadiah n)/i.test(text)) {
     return hadiahN(e, lineClient);
+  }
+
+  if (/^(hadiah i)/i.test(text)) {
+    return hadiahI(e, lineClient);
   }
 
   return Promise.resolve(null);
