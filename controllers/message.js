@@ -106,7 +106,7 @@ function generateCarousel() {
         }
       ]
     }, {
-      thumbnailImageUrl: `${BASE_URL}assets/carousel/hadiah-i.png`,
+      thumbnailImageUrl: `${BASE_URL}assets/carousel/hadiah-i-new.png`,
       imageBackgroundColor: '#f0932b',
       title: 'Hadiah I',
       text: 'Tap untuk mendapatkan hadiah I',
@@ -120,7 +120,7 @@ function generateCarousel() {
     }, {
       thumbnailImageUrl: `${BASE_URL}assets/carousel/hadiah-yy.png`,
       imageBackgroundColor: '#f6e58d',
-      title: 'Hadiah I',
+      title: 'Hadiah YY',
       text: 'Tap untuk mendapatkan hadiah YY',
       actions: [
         {
